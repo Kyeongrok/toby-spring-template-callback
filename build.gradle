@@ -1,0 +1,46 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:+'
+    }
+}
+plugins {
+    id 'java'
+}
+apply plugin: 'idea'
+apply plugin: 'war'
+
+ext{
+    springVersion = '4.1.6.RELEASE'
+}
+
+List springLib = [
+    'org.springframework:spring-core:{springVersion}',
+    'org.springframework:spring-context:{springVersion}'
+
+]
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    // https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
+    compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
+    compile 'mysql:mysql-connector-java:8.0.25'
+
+    compile 'org.springframework:spring-context:5.3.12'
+    compile 'org.springframework:spring-jdbc:5.3.12'
+    compile 'org.springframework:spring-test:5.3.12'
+}
+
+test {
+    useJUnitPlatform()
+}
