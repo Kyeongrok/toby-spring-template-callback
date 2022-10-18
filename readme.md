@@ -9,7 +9,6 @@
 SpringBoot가 들어있지 않습니다.
 
 ```.gradle
-![Uploading image.png…]()
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
