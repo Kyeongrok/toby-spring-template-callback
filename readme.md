@@ -4,6 +4,33 @@
 2. Template Callback 계산기
 
 
+### StatementStrategy
+
+Connection을 받고 PreparedStatement를 리턴하는 Interface
+
+```java
+public interface StatementStrategy {
+    PreparedStatement makePreparedStatement(Connection c) throws SQLException;
+}
+```
+
+### query를 받아서 실행
+
+StatementStrategy를 만들어서 executeUpdate를 태웁니다.
+
+```
+public void executeSql(String query) throws SQLException {
+        this.workWithStatementStrategy(new StatementStrategy() {
+            @Override
+            public PreparedStatement makePreparedStatement(Connection c) throws SQLException {
+                PreparedStatement ps = c.prepareStatement(query);
+                return ps;
+            }
+        });
+    }
+```
+
+
 ### Dependency
 
 SpringBoot가 들어있지 않습니다.
