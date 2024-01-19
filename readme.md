@@ -18,7 +18,7 @@ public interface StatementStrategy {
 
 StatementStrategy를 만들어서 executeUpdate를 태웁니다.
 
-```
+```java
 public void executeSql(String query) throws SQLException {
         this.workWithStatementStrategy(new StatementStrategy() {
             @Override
